@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+
+<!--     <script src="https://cdn.jsdelivr.net/npm/csv-parser@3.0.0/index.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf2json/2.3.0/pdf2json.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  -->
+    <!--   <script src="node_modules/pdfjs-dist/build/pdf.min.mjs"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
+    <link rel="icon" type="image" href="icon-1.png">
+    <script src="index.js"></script>
+    <title>lector</title>
+</head>
+<body>
+    <div class="container-fluid">
+       
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane container active" id="primera">
+                
+                <textarea  id="pdfUrl" cols="100" rows="2"></textarea>
+                <button id="boton" onclick="extractTextFromPDF()">
+                    leer pdf
+                </button>
+                <br>
+                <textarea  id="outputDiv" cols="100" rows="100"></textarea>
+            </div>
+        </div>
+
+    </div>
+    <script>
+    </script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 // import * as pdfjsLib from 'pdfjs-dist';
 // import 'pdfjs-dist/build/pdf.worker';
 // https://api.en.hegc.cl/dms/files/7252840?forceDownload=false&pretty-file-name=EXAMEN%20LABORATORIO
+// https://api.en.hegc.cl/dms/files/7214483?forceDownload=false&pretty-file-name=EXAMEN%20LABORATORIO  
 
 class diaExamen {
     constructor(fecha, hora){
@@ -74,12 +75,6 @@ const nombresExamenes = ["HEMOGLOBINA", "HEMATOCRITO", "V.C.M", "C.H.C.M", "PLAQ
 ];
 
 
-
-let tablaConResultados = [];
-let extractedText = "";
-
-
-// https://api.en.hegc.cl/dms/files/7214483?forceDownload=false&pretty-file-name=EXAMEN%20LABORATORIO  
 
 function extractTextFromPDF() {
 

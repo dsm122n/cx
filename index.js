@@ -1,7 +1,5 @@
 // import * as pdfjsLib from 'pdfjs-dist';
 // import 'pdfjs-dist/build/pdf.worker';
-// https://api.en.hegc.cl/dms/files/7252840?forceDownload=false&pretty-file-name=EXAMEN%20LABORATORIO
-// https://api.en.hegc.cl/dms/files/7214483?forceDownload=false&pretty-file-name=EXAMEN%20LABORATORIO  
 
 class diaExamen {
     constructor(fecha, hora){

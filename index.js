@@ -540,10 +540,10 @@ function extractTextFromPDF() {
                         let examenesStringsArray = [];
                         examenesStringsArray.push(formatSection('Hemograma', labDia.hemograma));
                         examenesStringsArray.push(formatSection('Gases', labDia.gases));
-                        examenesStringsArray.push(formatSection('Funcion Renal', labDia.funcionRenal));
+                        examenesStringsArray.push(formatSection('Función Renal', labDia.funcionRenal));
                         examenesStringsArray.push(formatSection('Electrolitos', labDia.electrolitos));
-                        examenesStringsArray.push(formatSection('Funcion Hepatica', labDia.funcionHepatica));
-                        examenesStringsArray.push(formatSection('Coagulacion', labDia.coagulacion));
+                        examenesStringsArray.push(formatSection('Función Hepática', labDia.funcionHepatica));
+                        examenesStringsArray.push(formatSection('Coagulación', labDia.coagulacion));
                         examenesStringsArray.push(formatSection('Otros', labDia.otros));
                         
                         let finalString = `>${formattedDate} ${formattedTime}:`;

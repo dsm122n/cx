@@ -1,92 +1,591 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="main.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
-    <link rel="icon" type="image/png" href="icon-1.png">
-    <script src="index.js"></script>
-    <title>lector</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="icon" type="image/png" href="icon.png">
+    <title>ingreso</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+      }
+
+      textarea {
+        max-width: 400px; /* Set your desired maximum width */
+        min-width: 100%; 
+        height: auto;
+        min-height: 150px; /* Set a minimum height if needed */
+        padding: 10px;
+        box-sizing: border-box;
+        resize: vertical; /* Allow vertical resizing */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Ingreso Cirugía</h1>
+        </div>
+      </div>
+    </section>
+    <form id="form" class="container m-4 pl-4" method="POST">
     
-</head>
-<body>
-    <div class="container-fluid">
-       <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white sticky-top" style="width: 100%">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="nav nav-pills navbar-dark bg-dark" >
-                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#lector">
-                        Lector lab
-                    </a></li>
-                    <li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#propina">
-                        Aportes y contacto
-                    </a></li>
-                </ul>
-            </div>
-       </nav>
+    <div background-color="red">
+
+      
+    <div class="field">
+      <label class="label">Nombre</label>
+      <div class="control">
+        <input
+        class="input"
+        placeholder="Ingrese nombre"
+        name="nombre"
+        />
+      </div>
+    </div>
     
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div class="tab-pane container active" id="lector">
-                <div class="container">
-                    <div class="row">
+    <div class="field">
+      <label class="label">Rut</label>
+      <div class="control">
+        <input
+        class="input"
+            placeholder="Ingrese rut"
+            name="rut"
+          />
+        </div>
+      </div>
 
-                        <div class="col-md">
-                            <h1>Lector lab HEGC</h1>
-                            <textarea  id="pdfUrl" cols="30" rows="3" style="border: 4px solid #2c6efa; background-color: #cefdfe; box-shadow:0 0 20px #94ae01; font-size: 20pt;" placeholder="Copie link del pdf del lab aquí"></textarea>
-                            <br>
-                            <button id="boton" onclick="extractTextFromPDF()">
-                                Click aquí para leer pdf
-                            </button>
-                            <br>
-                            <textarea  id="outputDiv" cols="50" rows="10" placeholder="Aquí aparecerán los resultados"></textarea>
-        
-                        </div>
-                        <div class="col-sm">
-                            <h1>Instrucciones</h1>
-                            <ol style="border: 4px solid #2c6efa">
-                                <li>Copia el link del pdf obtenido por dedalus en el cuadro de texto que dice "Copie link del pdf del lab aquí"</li>
-                                <li>Presiona el botón "Click aquí para leer pdf"</li>
-                                <li>Copia el texto que aparecerá en el cuadro de texto grande (no olvides revisar por si hay errores)</li>
-                            </ol>
-                            <p>
-                                En caso de desear agregar algún examen que no se copia y suele necesitarlo, o tener alguna <b><span style="color:rgb(201, 245, 176); background-color:#079756; font-size: 18pt;">sugerencia</span></b>, 
-                                haga click en la pestaña <b><span style="color:#f8ff96; background-color: #004d1d; font-size: 18pt;">"Aportes y contacto"</span></b> en la barra superior para contactar, haré lo que pueda para incluirlo<br><br>
-                                De momento <b><span class="highlight" style="color:#e8eda2; background-color:#3f8fff;"> solo extrae texto de 1 pdf </span></b> (los exámenes obtenidos sobrescriben el cuadro de texto), 
-                                tal vez más adelante lo actualice para que se puedan extraer varios y el texto se copie a continuación, 
-                                sin sobrescribir. <br><br>
-                                Tampoco copia exámenes de <b><span style="color:#eabeff; background-color:#b90707;">orina, LCR, líquido pleural, cultivos u otros fluidos</span></b>, 
-                                si ingresa un pdf que contenga estos exámenes, el programa <b><span style="color:#eabeff; background-color:#b90707;">puede cometer errores</span></b>. <br><br>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+      <div class="field">
+        <label class="label">Edad</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            placeholder="Ingrese edad"
+            name="edad"
+            />
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Fecha</label>
+        <div class="control">
+          <input
+          class="input"
+          type="date"
+          placeholder="Ingrese fecha"
+          name="fecha"
+          />
+        </div>
+      </div>
 
-            </div>
-            <div class="tab-pane container" id="propina">
-                <p> 
-                    <br>
-                    Este es un programita gratis open access no pay-to-win, su <b><span style="color:#34429d">propina</span></b> es mi sueldo. Se reciben aportes voluntarios si le es útil el programa <br>
-                    Se acepta propina monetaria, chocolates, café, o lo que se le venga a la mente <br>
-                    En caso de encontrar <b><span style="color:#b43c3c">errores</span></b>, o tener <b><span style="color:#007c38">sugerencias</span></b>, por favor contactar al correo <br>
-                    Si hay algún examen que no se copia y suele necesitarlo, también contactar al correo <br>
+      <div class="field">
+        <label class="label">Hora</label>
+        <div class="control">
+          <input
+          class="input"
+          type="time"
+          placeholder="Ingrese hora"
+          name="hora"
+          />
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Cama</label>
+        <div class="control">
+          <input
+          class="input"
+          type="number"
+          placeholder="Ingrese cama"
+          name="cama"
+          />
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Procedencia</label>
+        <div class="control">
+          <input
+          class="input"
+          placeholder="Ingrese procedencia"
+          name="procedencia"
+          />
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Equipo</label>
+        <div class="control">
+          <input
+          class="input"
+          placeholder="Ingrese equipo"
+          name="equipo"
+          />
+        </div>
+      </div>
 
-                </p>
-                <a style="font-size: 40pt; text-align: center;" href="https://drive.google.com/file/d/1AQPVmnoVY6ZDJ2F7SRbqFCaoce8acI64/view?usp=sharing">info propinas y contacto click aquíiii</a>
-                <br>
-                <br>
-                <p>
-                    contacto: 
-                    <a href="mailto:sanmartin.danny@gmail.com">sanmartin.danny@gmail.com</a>
-                </p>
-            </div>
+      
+    </div>
+      
+      <div class="field">
+        <label class="label">Antecedentes Médicos</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese antecedentes médicos"
+            name="antecedentes_medicos"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Antecedentes Quirúrgicos</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese antecedentes quirúrgicos"
+            name="antecedentes_quirurgicos"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Medicamentos</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese medicamentos"
+            name="medicamentos"
+          ></textarea>
+        </div>
+      </div>
+
+
+
+      <div class="field">
+        <label class="label">Alergias</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese alergias"
+            name="alergias"
+            value="(-)"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Tabaquismo</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese tabaquismo"
+            name="tbq"
+            value="(-)"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Alcoholismo</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese alcoholismo"
+            name="oh"
+            value="(-)"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Motivo Consulta</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese motivo consulta"
+            name="motivo_consulta"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Anamnesis</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese anamnesis"
+            name="historia"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Glasgow</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            placeholder="Ingrese glasgow"
+            name="glasgow"
+          />
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Piel</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese piel"
+            name="piel"
+            value="hidratada, llene capilar <2s, bien perfundida a distal"
+          />
         </div>
 
-    </div>
-</body>
+      <div class="field">
+        <label class="label">Temperatura</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            placeholder="Ingrese temperatura"
+            name="temp"
+            step="0.1"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Presión Arterial</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese presión arterial"
+            name="pa"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Frecuencia Cardíaca</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            placeholder="Ingrese frecuencia cardíaca"
+            name="fc"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Saturación</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            placeholder="Ingrese saturación"
+            name="sat"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Frecuencia Respiratoria</label>
+        <div class="control">
+          <input
+            class="input"
+            type="number"
+            placeholder="Ingrese frecuencia respiratoria"
+            name="fr"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Cabeza y cuello</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="hallazgos cabeza y cuello"
+            name="cyc"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Cardiovascular</label>
+        <div class="control">
+          <input
+            class="input"
+            name="cardio"
+            value="RR2T no ausculto soplos"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Pulmonar</label>
+        <div class="control">
+          <input
+            class="input"
+            name="pulmonar"
+            value="MP(+) sin ruidos agregados"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Abdominal</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese abdominal"
+            name="abdominal">RHA(+), depresible, indoloro. No palpo masas ni visceromegalias</textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Tacto Rectal</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese tacto rectal"
+            name="tr">No se realiza</textarea>
+
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Extremidades</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese extremidades"
+            name="extremidades"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Examen Físico Otros</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese examen físico otros"
+            name="ef_otros"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">TAC</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese TAC"
+            name="tc"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Ecografía</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese ecografía"
+            name="eco"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Otras imagenes</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese otras imagenes"
+            name="img_otros"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Laboratorio</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese laboratorio"
+            name="lab"
+          >
+- Hemograma:
+- PCR:
+- Coagulación:
+- ELP/función renal:
+- Pruebas hepáticas/pancreáticas:
+- Otros: </textarea>
+        </div>
+      </div>
+
+      
+
+      <div class="field">
+        <label class="label">Diagnósticos</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese diagnósticos"
+            name="dg"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Plan</label>
+        <div class="control">
+          <textarea
+            class="input"
+            placeholder="Ingrese plan"
+            name="plan"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Residente</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese residente"
+            name="residente"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Becado</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese becado"
+            name="becado"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Interno</label>
+        <div class="control">
+          <input
+            class="input"
+            placeholder="Ingrese interno"
+            name="interno"
+          />
+        </div>
+      </div>
+
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary" type="submit" id="submit-button">
+            Listo!!!
+          </button>
+        </div>
+        <div>
+          <button class="button is-danger" onclick="borrarDatos()">Borrar datos</button>
+        </div>
+      </div>
+    </form>
+    <div
+      id="message"
+      style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "
+    ></div>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting..";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+        console.log("Submitting the form..");
+        // Collect the form data
+        var formData = new FormData(this);
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        }
+        console.log(keyValuePairs);
+        var formDataString = keyValuePairs.join("&");
+        console.log(formDataString + '\n justo antes del fetch');
+        // Send a POST request to your Google Apps Script
+        fetch(
+          "https://script.google.com/macros/s/AKfycbza_5dm_2HHUBOTQwEGHKUZeQ21b-RLUKlAbUAvmiRGrZ_BbWx9TD9QASq56miHI1_0/exec",
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then(function (response) {
+            console.log("Success! estás dentro del POST request.");
+            // Check if the request was successful
+            if (response) {
+              console.log("Response:", response);
+              console.log(formDataString );
+              return response; // Assuming your script returns JSON response
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent =
+              "Data submitted successfully!";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form");
+            // open slides link on new tab https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit#slide=id.p
+            window.open("https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit#slide=id.SLIDES_API1924043185_0", "_blank");
+
+
+            setTimeout(function () {
+              document.getElementById("message").textContent = "";
+              document.getElementById("message").style.display = "none";
+            }, 5000);
+          })
+          .catch(function (error) {
+            // Handle errors, you can display an error message here
+            console.error(error);
+            document.getElementById("message").textContent =
+              "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+            
+          });
+      });
+      borrarDatos = () => {
+        document.getElementById("form").reset();
+      };
+    </script>
+  </body>
 </html>

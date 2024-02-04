@@ -452,18 +452,27 @@
 
         <div id="lab" class="column">
           <div class="field" style="height: 90%;">
-              <label class="label">Laboratorio</label>
-                <div class="columns">
-                    <input type="url" id="pdfURL" class="input column" value="doc%20(2).pdf">    
-                
-                    <button id="openLab" type="button" class="button is-link " onclick="readLab()">Importar lab</button>
-                </div>
+            <label class="label">Laboratorio</label>
+            <div class="columns">
+              <input type="url" id="pdfURL" class="input column" placeholder="aquí pega el link del obtenido del syslab">    
+              
+              <button id="openLab" type="button" class="button is-link " onclick="readLab()">Importar lab</button>
+            </div>
+            <p>
+              Puedes ingresar los exámenes a mano o importarlos desde el syslab. Para lo último, <span style="color: white; font-weight: bold; background-color: red;">pega el link del pdf en el campo de arriba </span> y 
+              haz click en 
+              <span style="color: white; font-weight: bold; background-color: red;"> 
+              "Importar lab".
+              </span>
+
+            </p>
+
               <div class="control" style="height: 90%;">
                 <textarea
                   id="labText"
                   class="input"
                   name="lab"
-                  style="height: 100%;"
+                  style="height: 80%;"
                 >
 - Hemograma: 
 - PCR: 

@@ -7,6 +7,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
     <link rel="icon" type="image/png" href="icon.png">
     <title>ingreso</title>
     <style>
@@ -24,6 +25,7 @@
         resize: vertical; /* Allow vertical resizing */
       }
     </style>
+    <script src="lab.js"></script>
   </head>
   <body>
     <section class="hero is-primary is-bold">
@@ -33,430 +35,479 @@
         </div>
       </div>
     </section>
-    <form id="form" class="container m-4 pl-4" method="POST">
     <a href="https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit?usp=sharing">Click aquí para ir al slides</a>
-    <div background-color="red">
+    <form id="form" class="container m-4 pl-4 " method="POST">
+    
+    <div id="datos" class="columns has-background-grey-lighter">
+        <div id="datos_personales" class="column">
+    
+          
+            <div class="field">
+            <label class="label">Nombre</label>
+            <div class="control">
+                <input
+                class="input"
+                placeholder="Ingrese nombre"
+                name="nombre"
+                />
+            </div>
+            </div>
+            
+            <div class="field">
+            <label class="label">Rut</label>
+            <div class="control">
+                <input
+                class="input"
+                    placeholder="Ingrese rut"
+                    name="rut"
+                />
+                </div>
+            </div>
+    
+            <div class="field">
+                <label class="label">Edad</label>
+                <div class="control">
+                <input
+                    class="input"
+                    type="number"
+                    placeholder="Ingrese edad"
+                    name="edad"
+                    />
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Fecha</label>
+                <div class="control">
+                <input
+                class="input"
+                type="date"
+                placeholder="Ingrese fecha"
+                name="fecha"
+                />
+                </div>
+            </div>
+    
+            <div class="field">
+                <label class="label">Hora</label>
+                <div class="control">
+                <input
+                class="input"
+                type="time"
+                placeholder="Ingrese hora"
+                name="hora"
+                />
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Cama</label>
+                <div class="control">
+                <input
+                class="input"
+                placeholder="Ingrese cama"
+                name="cama"
+                />
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Procedencia</label>
+                <div class="control">
+                <input
+                class="input"
+                placeholder="Ingrese procedencia"
+                name="procedencia"
+                />
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Equipo</label>
+                <div class="control">
+                <input
+                class="input"
+                placeholder="Ingrese equipo"
+                name="equipo"
+                />
+                </div>
+            </div>
+    
+          
+        </div>
+        
+        <div id="datos_antecedentes" class="column">
+    
+          <div class="field">
+            <label class="label">Antecedentes Médicos</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese antecedentes médicos"
+                name="antecedentes_medicos"
+              ></textarea>
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Antecedentes Quirúrgicos</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese antecedentes quirúrgicos"
+                name="antecedentes_quirurgicos"
+              ></textarea>
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Medicamentos</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese medicamentos"
+                name="medicamentos"
+              ></textarea>
+            </div>
+          </div>
+    
+    
+    
+          <div class="field">
+            <label class="label">Alergias</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="Ingrese alergias"
+                name="alergias"
+                value="(-)"
+              />
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Tabaquismo</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="Ingrese tabaquismo"
+                name="tbq"
+                value="(-)"
+              />
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Alcoholismo</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="Ingrese alcoholismo"
+                name="oh"
+                value="(-)"
+              />
+            </div>
+          </div>
+    
+        </div>
 
-      
-    <div class="field">
-      <label class="label">Nombre</label>
-      <div class="control">
-        <input
-        class="input"
-        placeholder="Ingrese nombre"
-        name="nombre"
-        />
-      </div>
+    </div>
+
+    <div id="actual" class="columns has-background-warning">
+        <div id="clinica" class="column">
+            
+          <div class="field">
+            <label class="label">Motivo Consulta</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="Ingrese motivo consulta"
+                name="motivo_consulta"
+              />
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Anamnesis</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese anamnesis"
+                name="historia"
+              ></textarea>
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Glasgow</label>
+            <div class="control">
+              <input
+                class="input"
+                type="number"
+                placeholder="Ingrese glasgow"
+                name="glasgow"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Piel</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="Ingrese piel"
+                name="piel"
+                value="hidratada, llene capilar <2s, bien perfundida a distal"
+              />
+                </div>
+            </div>
+    
+            <div id="signos_vitales" class="columns">
+              <div class="field" style="padding-left: 20px; padding-right: 20px;">
+                <label class="label">Temperatura</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Ingrese temperatura"
+                    name="temp"
+                    step="0.1"
+                  />
+                </div>
+              </div>
+
+              <div class="field" style="padding-left: 20px; padding-right: 20px;">
+                <label class="label">PA</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    placeholder="Ingrese presión arterial"
+                    name="pa"
+                  />
+                </div>
+              </div>
+        
+              <div class="field" style="padding-left: 20px; padding-right: 20px;">
+                <label class="label">FC</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Ingrese frecuencia cardíaca"
+                    name="fc"
+                  />
+                </div>
+              </div>
+        
+              <div class="field" style="padding-left: 20px; padding-right: 20px;">
+                <label class="label">Sat</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Ingrese saturación"
+                    name="sat"
+                  />
+                </div>
+              </div>
+        
+              <div class="field" style="padding-left: 20px; padding-right: 20px;">
+                <label class="label">FR</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Ingrese frecuencia respiratoria"
+                    name="fr"
+                  />
+                </div>
+              </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Cabeza y cuello</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="hallazgos cabeza y cuello"
+                name="cyc"
+                value="mucosas rosadas hidratadas, no palpo adenopatías"
+              />
+            </div>
+          </div>
+          <div id="torax" class="columns">
+
+              <div class="field column">
+                <label class="label">Cardiovascular</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    name="cardio"
+                    value="RR2T no ausculto soplos"
+                  />
+                </div>
+              </div>
+        
+              <div class="field column">
+                <label class="label">Pulmonar</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    name="pulmonar"
+                    value="MP(+) sin ruidos agregados"
+                  />
+                </div>
+              </div>
+
+          </div>
+    
+          <div class="field">
+            <label class="label">Abdominal</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese abdominal"
+                name="abdominal">RHA(+), depresible, indoloro. No palpo masas ni visceromegalias</textarea>
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Tacto Rectal</label>
+            <div class="control">
+                <input
+                class="input"
+                placeholder="Ingrese tacto rectal"
+                name="tr"
+                value="No se realiza">
+    
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Extremidades</label>
+            <div class="control">
+              <input
+                class="input"
+                placeholder="Ingrese extremidades"
+                name="extremidades"
+              />
+            </div>
+          </div>
+    
+          <div class="field">
+            <label class="label">Examen Físico Otros</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese examen físico otros"
+                name="ef_otros"
+              ></textarea>
+            </div>
+          </div>
+    
+        </div>    
+
     </div>
     
-    <div class="field">
-      <label class="label">Rut</label>
-      <div class="control">
-        <input
-        class="input"
-            placeholder="Ingrese rut"
-            name="rut"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Edad</label>
-        <div class="control">
-          <input
-            class="input"
-            type="number"
-            placeholder="Ingrese edad"
-            name="edad"
-            />
-        </div>
-      </div>
-      
-      <div class="field">
-        <label class="label">Fecha</label>
-        <div class="control">
-          <input
-          class="input"
-          type="date"
-          placeholder="Ingrese fecha"
-          name="fecha"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Hora</label>
-        <div class="control">
-          <input
-          class="input"
-          type="time"
-          placeholder="Ingrese hora"
-          name="hora"
-          />
-        </div>
-      </div>
-      
-      <div class="field">
-        <label class="label">Cama</label>
-        <div class="control">
-          <input
-          class="input"
-          placeholder="Ingrese cama"
-          name="cama"
-          />
-        </div>
-      </div>
-      
-      <div class="field">
-        <label class="label">Procedencia</label>
-        <div class="control">
-          <input
-          class="input"
-          placeholder="Ingrese procedencia"
-          name="procedencia"
-          />
-        </div>
-      </div>
-      
-      <div class="field">
-        <label class="label">Equipo</label>
-        <div class="control">
-          <input
-          class="input"
-          placeholder="Ingrese equipo"
-          name="equipo"
-          />
-        </div>
-      </div>
-
-      
-    </div>
-      
-      <div class="field">
-        <label class="label">Antecedentes Médicos</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese antecedentes médicos"
-            name="antecedentes_medicos"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Antecedentes Quirúrgicos</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese antecedentes quirúrgicos"
-            name="antecedentes_quirurgicos"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Medicamentos</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese medicamentos"
-            name="medicamentos"
-          ></textarea>
-        </div>
-      </div>
+    
 
 
+    <div></div>
 
-      <div class="field">
-        <label class="label">Alergias</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese alergias"
-            name="alergias"
-            value="(-)"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Tabaquismo</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese tabaquismo"
-            name="tbq"
-            value="(-)"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Alcoholismo</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese alcoholismo"
-            name="oh"
-            value="(-)"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Motivo Consulta</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese motivo consulta"
-            name="motivo_consulta"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Anamnesis</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese anamnesis"
-            name="historia"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Glasgow</label>
-        <div class="control">
-          <input
-            class="input"
-            type="number"
-            placeholder="Ingrese glasgow"
-            name="glasgow"
-          />
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Piel</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese piel"
-            name="piel"
-            value="hidratada, llene capilar <2s, bien perfundida a distal"
-          />
+    <div id="complementarios" class="columns has-background-primary">
+        <div id="imagenes" class="column">
+            <div class="field">
+                <label class="label">TAC</label>
+                <div class="control">
+                  <textarea
+                    class="input"
+                    placeholder="Ingrese TAC"
+                    name="tc"
+                  ></textarea>
+                </div>
+              </div>
+        
+              <div class="field">
+                <label class="label">Ecografía</label>
+                <div class="control">
+                  <textarea
+                    class="input"
+                    placeholder="Ingrese ecografía"
+                    name="eco"
+                  ></textarea>
+                </div>
+              </div>
+        
+              <div class="field">
+                <label class="label">Otras imagenes</label>
+                <div class="control">
+                  <textarea
+                    class="input"
+                    placeholder="Ingrese otras imagenes"
+                    name="img_otros"
+                  ></textarea>
+                </div>
+              </div>
+        
+    
         </div>
 
-      <div class="field">
-        <label class="label">Temperatura</label>
-        <div class="control">
-          <input
-            class="input"
-            type="number"
-            placeholder="Ingrese temperatura"
-            name="temp"
-            step="0.1"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Presión Arterial</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese presión arterial"
-            name="pa"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Frecuencia Cardíaca</label>
-        <div class="control">
-          <input
-            class="input"
-            type="number"
-            placeholder="Ingrese frecuencia cardíaca"
-            name="fc"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Saturación</label>
-        <div class="control">
-          <input
-            class="input"
-            type="number"
-            placeholder="Ingrese saturación"
-            name="sat"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Frecuencia Respiratoria</label>
-        <div class="control">
-          <input
-            class="input"
-            type="number"
-            placeholder="Ingrese frecuencia respiratoria"
-            name="fr"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Cabeza y cuello</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="hallazgos cabeza y cuello"
-            name="cyc"
-            value="mucosas rosadas hidratadas, no palpo adenopatías"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Cardiovascular</label>
-        <div class="control">
-          <input
-            class="input"
-            name="cardio"
-            value="RR2T no ausculto soplos"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Pulmonar</label>
-        <div class="control">
-          <input
-            class="input"
-            name="pulmonar"
-            value="MP(+) sin ruidos agregados"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Abdominal</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese abdominal"
-            name="abdominal">RHA(+), depresible, indoloro. No palpo masas ni visceromegalias</textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Tacto Rectal</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese tacto rectal"
-            name="tr">No se realiza</textarea>
-
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Extremidades</label>
-        <div class="control">
-          <input
-            class="input"
-            placeholder="Ingrese extremidades"
-            name="extremidades"
-          />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Examen Físico Otros</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese examen físico otros"
-            name="ef_otros"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">TAC</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese TAC"
-            name="tc"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Ecografía</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese ecografía"
-            name="eco"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Otras imagenes</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese otras imagenes"
-            name="img_otros"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Laboratorio</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese laboratorio"
-            name="lab"
-          >
-- Hemograma:
-- PCR:
-- Coagulación:
-- ELP/función renal:
-- Pruebas hepáticas/pancreáticas:
+        <div id="lab" class="column">
+          <div class="field" style="height: 90%;">
+              <label class="label">Laboratorio</label>
+              <div class="control columns">
+                    <input
+                    class="input column"
+                    placeholder="link archivo lab"
+                    name="lab"
+                    style="height: 100%;"
+                    >
+                    <button class="button is-primary is-link " onclick="openLab()">Importar lab</button>
+                </div>
+              <div class="control" style="height: 90%;">
+                <textarea
+                  class="input"
+                  placeholder="Ingrese laboratorio"
+                  name="lab"
+                  style="height: 100%;"
+                >
+- Hemograma: 
+- PCR: 
+- Coagulación: 
+- ELP/función renal: 
+- Pruebas hepáticas/pancreáticas: 
 - Otros: </textarea>
+              </div>
+            </div>
         </div>
-      </div>
+    </div>
+
+
+
+    <div id="analisis" class="columns has-background-success-dark">
+        <div class="field column">
+            <label class="label has-text-white">Diagnósticos</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese diagnósticos"
+                name="dg"
+              ></textarea>
+            </div>
+          </div>
+    
+          <div class="field column">
+            <label class="label has-text-white">Plan</label>
+            <div class="control">
+              <textarea
+                class="input"
+                placeholder="Ingrese plan"
+                name="plan"
+              ></textarea>
+            </div>
+          </div>
+    </div>
 
       
-
-      <div class="field">
-        <label class="label">Diagnósticos</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese diagnósticos"
-            name="dg"
-          ></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Plan</label>
-        <div class="control">
-          <textarea
-            class="input"
-            placeholder="Ingrese plan"
-            name="plan"
-          ></textarea>
-        </div>
-      </div>
 
       <div class="field">
         <label class="label">Residente</label>

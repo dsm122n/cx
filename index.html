@@ -570,8 +570,8 @@
             // open slides link on new tab https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit#slide=id.p
             // window.open("https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit#slide=id.SLIDES_API1924043185_0", "_blank");
             var windowReference = window.open();
-            myService.getUrl().then(function(url = "https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit#slide=id.SLIDES_API1924043185_0") {
-
+            myService.getUrl().then(function(url) {
+              url = "https://docs.google.com/presentation/d/1CIDeB-Nt_-2H8HYwG8AXPRVA8Xr3nPpWI_0aLWt4hRs/edit#slide=id.SLIDES_API1924043185_0";
               windowReference.location = url;
 
             });

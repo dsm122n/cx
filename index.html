@@ -17,7 +17,6 @@
 
       textarea {
         max-width: 400px; /* Set your desired maximum width */
-        min-width: 100%; 
         height: auto;
         min-height: 150px; /* Set a minimum height if needed */
         padding: 10px;
@@ -454,19 +453,15 @@
         <div id="lab" class="column">
           <div class="field" style="height: 90%;">
               <label class="label">Laboratorio</label>
-              <div class="control columns">
-                    <input
-                    class="input column"
-                    placeholder="Esto todavía no funciona"
-                    name="lab"
-                    style="height: 100%;"
-                    >
-                    <button class="button is-primary is-link " onclick="openLab()">Importar lab</button>
+                <div class="columns">
+                    <input type="url" id="pdfURL" class="input column" value="doc%20(2).pdf">    
+                
+                    <button id="openLab" type="button" class="button is-link " onclick="readLab()">Importar lab</button>
                 </div>
               <div class="control" style="height: 90%;">
                 <textarea
+                  id="labText"
                   class="input"
-                  placeholder="Ingrese laboratorio"
                   name="lab"
                   style="height: 100%;"
                 >
